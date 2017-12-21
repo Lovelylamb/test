@@ -14,7 +14,7 @@ import com.chenshuai.dao.UserDao;
 import com.chenshuai.entity.User;
 
 public class UserDaoImpl implements UserDao {
-    private File file =new File("user.txt");  //定义文件
+    private File file =new File("User.txt");  //定义文件
     private ObjectInputStream ois =null;   //对象输入流
     private ObjectOutputStream oos=null;   //对象输出流
     
@@ -89,22 +89,30 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	
-	
+	/**
+	 * 冻结用户
+	 */
 	@Override
 	public boolean delUser(int id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
+    /**
+     * 更新用户
+     */
 	@Override
 	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
-
+  /**
+   * 查找所有的用户
+   */
 	@Override
 	public User queryUser(User user) {
-		// TODO Auto-generated method stub
+		List<User> ulist = read();
+		for (User user2 : ulist) {
+			System.out.println(user2);
+		}
 		return null;
 	}
 

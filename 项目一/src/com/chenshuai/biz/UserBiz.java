@@ -10,6 +10,4 @@ public interface UserBiz {
    boolean register(User user);
 	//ÓÃ»§µÇÂ½
    User login(String uname,String upassword);
-  
-   
 }

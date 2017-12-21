@@ -6,10 +6,13 @@ import java.io.Serializable;
  * 用户实体类
  * */
 public class User implements Serializable{
-     private int id;  //用户编号
+	private static final long serialVersionUID = 1L;
+	private int id;  //用户编号
      private String name; //用户名字
      private String password;//用户密码
-     private int type; //用户的类型 管理员还是用户
+     private int    age; //用户年龄
+     private char sex; //用户性别
+     private int level=0; //用户级别 管理员还是用户
      private double integral;//用户积分
       //无参构造方法
      public User() {
@@ -27,7 +30,7 @@ public class User implements Serializable{
 		super();
 		this.name = name;
 		this.password = password;
-		this.type = type;
+		this.level = level;
 		this.integral = integral;
 	}
  
@@ -37,7 +40,7 @@ public class User implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.password = password;
-		this.type = type;
+		this.level = level;
 		this.integral = integral;
 	}
 
@@ -58,6 +61,23 @@ public class User implements Serializable{
 		this.name = name;
 	}
 	
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public char getSex() {
+		return sex;
+	}
+
+	public void setSex(char sex) {
+		this.sex = sex;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -66,12 +86,12 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	
-	public int getType() {
-		return type;
+	public int getLevel() {
+		return level;
 	}
 	
-	public void setType(int type) {
-		this.type = type;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	    
 	public double getIntegral() {
@@ -82,7 +102,7 @@ public class User implements Serializable{
 		this.integral = integral;
 	}
 
-	@Override  //重写equals方法
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -91,6 +111,8 @@ public class User implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
+		if (age != other.age)
+			return false;
 		if (id != other.id)
 			return false;
 		if (Double.doubleToLongBits(integral) != Double.doubleToLongBits(other.integral))
@@ -105,14 +127,16 @@ public class User implements Serializable{
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (type != other.type)
+		if (sex != other.sex)
+			return false;
+		if (level != other.level)
 			return false;
 		return true;
 	}
 
 	@Override//重写toString 方法
 	public String toString() {
-		return "(用户ID:" + id + ",用户名字:" + name + ", 用户密码:" + password + ", 用户类型" + type +",用户积分:"+integral+")";
+		return "(用户ID:" + id + ",用户名字:" + name + ", 用户密码:" + password +  ", 用户年龄:" + age+ ", 用户性别:" + sex +", 用户类型" + level +",用户积分:"+integral+")";
 	}
          
 }

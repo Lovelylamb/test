@@ -1,9 +1,13 @@
 package com.chenshuai.entity;
+
+import java.io.Serializable;
+
 /*
  * 记录信息的实体类
  * */
-public class Record {
-    private int id;   //这个记录的编号
+public class Record implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private int id;   //这个记录的编号
     private int uid;  //借书的那个用户的编号
     private int bid; //借出的那本书的编号
     private String lendTime; //书本借出时间

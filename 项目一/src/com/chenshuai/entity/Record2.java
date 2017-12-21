@@ -1,9 +1,13 @@
 package com.chenshuai.entity;
+
+import java.io.Serializable;
+
 /*
  * 自定义实体类对象
  * */
-public class Record2 {
-   private int id;  //记录id
+public class Record2 implements Serializable{
+private static final long serialVersionUID = 1L;
+private int id;  //记录id
    private int bid;  //书本id
    private String uname; //用户名
    private String bname; //书本名
